@@ -31,11 +31,11 @@ const initstate = {
         '나의 MBTI는?',
       answer: [
         {
-          text: 'ISTF',
+          text: 'ISTP',
           result: '',
         },
         {
-          text: 'ISPJ',
+          text: 'ISFJ',
           result: '',
         },
         {
@@ -43,7 +43,7 @@ const initstate = {
           result: 'q',
         },
         {
-          text: 'INPF',
+          text: 'INTJ',
           result: '',
         },
       ],
