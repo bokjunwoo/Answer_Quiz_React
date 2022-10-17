@@ -13,7 +13,21 @@ router.get('/counts', (req, res) => {
 router.post('/inccount', (req, res) => {
   db.incCounts((msg) => {
     res.send(msg);
-  })
-}) 
+  });
+});
+
+router.get('/survey', (req, res) => {
+  db.getSurvey((data) => {
+    console.log(data);
+    res.send(data);
+  });
+});
+
+router.get('/explanation', (req, res) => {
+  db.getExplanation((data) => {
+    console.log(data);
+    res.send(data);
+  });
+});
 
 module.exports = router;

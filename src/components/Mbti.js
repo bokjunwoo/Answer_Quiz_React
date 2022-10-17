@@ -12,6 +12,8 @@ const SurveyQuestion = styled.p`
 export default function Mbti() {
   const survey = useSelector((state) => state.mbti.survey);
   const page = useSelector((state) => state.mbti.page);
+  const resilt = useSelector((state) => state.mbti.mbtiResult);
+  console.log(resilt)
   const dispatch = useDispatch();
 
   return (
