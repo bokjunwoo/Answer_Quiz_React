@@ -1,1 +1,1 @@
-## React SAP를 이용한 테스트 퀴즈
+## React SAP를 활용한 테스트 퀴즈
