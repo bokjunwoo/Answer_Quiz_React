@@ -98,8 +98,8 @@ export default function Start() {
     };
   }
   useEffect(() => {
-    //sqlfetchData();
-    mongoFetData();
+    sqlfetchData();
+    // mongoFetData();
   }, [])
 
   return (

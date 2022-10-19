@@ -1,7 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const DB_URI = 'mongodb://localhost:27017';
-
 const DB_URI_ATLAS =
   'mongodb+srv://junu:qwe123@cluster0.dkrrnaq.mongodb.net/?retryWrites=true&w=majority';
 

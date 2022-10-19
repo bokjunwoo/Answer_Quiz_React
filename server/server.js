@@ -14,8 +14,8 @@ const dataRouter = require('./routes/data');
 app.use('/data', dataRouter)
 
 // mongo
-const mongoRouter = require('./routes/mongo')
-app.use('/mongo', mongoRouter);
+// const mongoRouter = require('./routes/mongo')
+// app.use('/mongo', mongoRouter);
 
 
 app.listen(PORT, () => {
