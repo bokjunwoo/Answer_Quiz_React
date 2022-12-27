@@ -16,6 +16,7 @@ export default function Start() {
   const [counts, setCounts] = useState(0)
   const dispatch = useDispatch();
 
+  /*
   function makeData(survey, explanation) {
     const initData = { survey: [], explanation: {}};
     if(initData.survey.length === 0) {
@@ -46,39 +47,39 @@ export default function Start() {
     };
     return initData;
   }
+  */
+  // async function sqlfetchData() {
+  //   // counts 값 받아오기
+  //   const resCount = await fetch('http://localhost:3001/data/counts');
+  //   if(resCount.status === 200) {
+  //     const num = await resCount.json();
+  //     if (num[0].counts !== 0) setCounts(num[0].counts);
+  //   } else {
+  //     throw new Error('통신 이상');
+  //   };
 
-  async function sqlfetchData() {
-    // counts 값 받아오기
-    const resCount = await fetch('http://localhost:3001/data/counts');
-    if(resCount.status === 200) {
-      const num = await resCount.json();
-      if (num[0].counts !== 0) setCounts(num[0].counts);
-    } else {
-      throw new Error('통신 이상');
-    };
-
-    // survey 값 받아오기
-    const resSurvey = await fetch('http://localhost:3001/data/survey');
-    if(resSurvey.status === 200) {
-      const surveyData = await resSurvey.json();
+  //   // survey 값 받아오기
+  //   const resSurvey = await fetch('http://localhost:3001/data/survey');
+  //   if(resSurvey.status === 200) {
+  //     const surveyData = await resSurvey.json();
       
-      // explanation 값 받아오기
-      const resExplanation = await fetch('http://localhost:3001/data/explanation');
-      if(resExplanation.status === 200) {
-        const explanationData = await resExplanation.json();
-        const madeData =  makeData(surveyData, explanationData);
-        dispatch(init(madeData));
-      } else {
-        throw new Error('통신 이상');
-      };
-    } else {
-      throw new Error('통신 이상');
-    };
-  };
+  //     // explanation 값 받아오기
+  //     const resExplanation = await fetch('http://localhost:3001/data/explanation');
+  //     if(resExplanation.status === 200) {
+  //       const explanationData = await resExplanation.json();
+  //       const madeData =  makeData(surveyData, explanationData);
+  //       dispatch(init(madeData));
+  //     } else {
+  //       throw new Error('통신 이상');
+  //     };
+  //   } else {
+  //     throw new Error('통신 이상');
+  //   };
+  // };
 
   async function mongoFetData() {
     // count 값 받아오기
-    const resCount = await fetch('http://localhost:3001/mongo/count');
+    const resCount = await fetch('http://54.180.136.213:3001/mongo/count');
     if(resCount.status === 200) {
       const num = await resCount.json();
       if (num[0].counts !== 0) setCounts(num[0].counts);
@@ -87,7 +88,7 @@ export default function Start() {
     };
 
     // 설문 전체 값 받아오기
-    const resData = await fetch('http://localhost:3001/mongo/getdata');
+    const resData = await fetch('http://54.180.136.213:3001/mongo/getdata');
     if (resData.status === 200) {
       const data = await resData.json();
       if (data[0].survey.length !== 0) {
@@ -97,9 +98,10 @@ export default function Start() {
       throw new Error('통신 이상');
     };
   }
+  
   useEffect(() => {
-    sqlfetchData();
-    // mongoFetData();
+    // sqlfetchData();
+    mongoFetData();
   }, [])
 
   return (
