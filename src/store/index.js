@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import mbti from './modules/mbti';
+import quzi from './modules/quzi';
 
 export default combineReducers({
-  mbti,
+  quzi,
 });

@@ -12,7 +12,6 @@ const MyButton = styled.a`
   background-color: ${(props) => props.mainColor};
   border: 2px solid ${(props) => props.subColor};
   border-radius: 0.75em;
-  // 드래그 안되게 하는 옵션
   user-select: none;
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;

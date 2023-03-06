@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ButtonSkyblue from './ButtonSkyblue';
-import { next, check } from '../store/modules/mbti';
+import { next, check } from '../store/modules/quzi';
 import Progress from './Progress';
 
 const SurveyQuestion = styled.p`
@@ -9,9 +9,8 @@ const SurveyQuestion = styled.p`
   color: #777;
 `;
 
-export default function Mbti() {
-  const survey = useSelector((state) => state.mbti.survey);
-  const page = useSelector((state) => state.mbti.page);
+export default function Quzi() {
+  const { survey, page } = useSelector((state) => state.quzi);
   const dispatch = useDispatch();
 
   return (

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import Start from './components/Start';
 import styled from 'styled-components';
 import GlobalStyle from './components/GlobalStyle';
-import Mbti from './components/Mbti';
+import Mbti from './components/Quzi';
 import Show from './components/Show';
 
 const Main = styled.main`
@@ -15,11 +15,10 @@ const Main = styled.main`
 `;
 
 function App() {
-  const page = useSelector((state) => state.mbti.page);
-  const survey = useSelector((state) => state.mbti.survey);
+  const { page, survey } = useSelector((state) => state.quzi);
 
   return (
-    <div className="App">
+    <div className='App'>
       <>
         <GlobalStyle />
         <Main>

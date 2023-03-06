@@ -5,9 +5,9 @@ export default function ButtonSkyblue({ text, clickEvent }) {
     <Button
       text={text}
       clickEvent={clickEvent}
-      mainColor="#7EDCFA"
-      subColor="#3A82E0"
-      hoverColor="#CFECF2"
+      mainColor='#7EDCFA'
+      subColor='#3A82E0'
+      hoverColor='#CFECF2'
     />
   );
 }
