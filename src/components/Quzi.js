@@ -11,6 +11,7 @@ const SurveyQuestion = styled.p`
 
 export default function Quzi() {
   const { survey, page } = useSelector((state) => state.quzi);
+
   const dispatch = useDispatch();
 
   return (

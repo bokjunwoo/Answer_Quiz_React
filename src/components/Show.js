@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ButtonOrange from './ButtonOrange';
 import { reset } from '../store/modules/quzi';
 import { useEffect } from 'react';
+import { postCount } from '../store/modules/data';
 
 const Header = styled.p`
   font-size: 3em;
@@ -20,19 +21,8 @@ export default function Show() {
   const explanation = useSelector((state) => state.quzi.explanation[result]);
 
   useEffect(() => {
-    async function sendData() {
-      const resInc = await fetch('http://54.180.136.213:3001/mongo/inccount', {
-        method: 'POST',
-      }); // POST 방식으로 보내다
-
-      if (resInc.status === 200) {
-        console.log(await resInc.json());
-      } else {
-        throw new Error('통신 이상');
-      }
-    }
-    sendData();
-  }, []);
+    dispatch(postCount());
+  }, [dispatch]);
 
   return (
     <>
