@@ -16,12 +16,8 @@ const MainImg = styled.img`
 export default function Start() {
   const dispatch = useDispatch();
 
-  const { quziData, loadingData, errorData } = useSelector(
-    (state) => state.data
-  );
-  const { counts, loadingCounts, errorCounts } = useSelector(
-    (state) => state.data
-  );
+  const { quziData, loadingData } = useSelector((state) => state.data);
+  const { counts, loadingCounts } = useSelector((state) => state.data);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -31,15 +27,25 @@ export default function Start() {
   return (
     <>
       <Header>나를 맞춰 보세요!</Header>
-      <p>지금 까지 참여한 인원 {counts}명</p>
-      <MainImg src='/images/kakao.png' alt='메인 이미지' />
-      <ButtonOrange
-        text='테스트 시작'
-        clickEvent={() => {
-          dispatch(next());
-          dispatch(init(quziData));
-        }}
-      />
+      {loadingCounts ? (
+        <p>지금 까지 참여한 인원 ...명</p>
+      ) : (
+        <p>지금 까지 참여한 인원 {counts}명</p>
+      )}
+      {loadingData ? (
+        <p>데이터를 불러오는 중...</p>
+      ) : (
+        <>
+          <MainImg src='/images/kakao.png' alt='메인 이미지' />
+          <ButtonOrange
+            text='테스트 시작'
+            clickEvent={() => {
+              dispatch(next());
+              dispatch(init(quziData));
+            }}
+          />
+        </>
+      )}
     </>
   );
 }
